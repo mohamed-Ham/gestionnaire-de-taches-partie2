@@ -8,6 +8,7 @@ require 'configuration/index.php';
 <head>
     <meta charset="UTF-8">
     <title>Gestion des tâches</title>
+    <link rel="stylesheet" href="style/style.css">
     <!-- On charge le fichier JavaScript -->
     <script src="js/conf.js"></script>
 </head>
@@ -59,6 +60,7 @@ Filtre :
         <th>Statut</th>
         <th>Priorité</th>
         <th>Date limite</th>
+        <th>Action</th>
     </tr>
 
     <!-- On boucle sur chaque tâche récupérée dans index.php -->
@@ -70,6 +72,7 @@ Filtre :
         <td><?= $t['statut'] ?></td>
         <td><?= $t['priorite'] ?></td>
         <td><?= $t['date_limite'] ?></td>
+        <td><a href="vue.php?supprimer=<?= $t['id'] ?>">Supprimer</a></td>
     </tr>
     <?php endforeach; ?>
 

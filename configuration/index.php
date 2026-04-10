@@ -2,6 +2,12 @@
 // On inclut la connexion à la base de données
 require 'connexion.php';
 
+// Suppression d'une tâche si l'id est passé dans l'url
+if (isset($_GET['supprimer'])) {
+    $stmt = $pdo->prepare("DELETE FROM taches WHERE id = ?");
+    $stmt->execute([$_GET['supprimer']]);
+}
+
 // Si le formulaire est envoyé on insère la tâche
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
